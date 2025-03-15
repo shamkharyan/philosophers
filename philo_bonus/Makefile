@@ -8,7 +8,7 @@ INC_PATH = ./includes
 
 SRCS = \
 		$(SRC_PATH)/utils.c \
-		$(SRC_PATH)/philo.c \
+		$(SRC_PATH)/philo_bonus.c \
 		$(SRC_PATH)/initialization.c \
 		$(SRC_PATH)/monitor.c \
 		$(SRC_PATH)/life.c \

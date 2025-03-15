@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pshamkha <pshamkha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shamkharyan <shamkharyan@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 15:17:32 by pshamkha          #+#    #+#             */
-/*   Updated: 2024/07/18 16:33:05 by pshamkha         ###   ########.fr       */
+/*   Updated: 2025/03/15 19:45:22 by shamkharyan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 # include <sys/time.h>
 # include <limits.h>
 # include <signal.h>
+# include <fcntl.h>
+# include <sys/wait.h>
 
 # define RED "\x1B[31m"
 # define GRN "\x1B[32m"
@@ -69,7 +71,6 @@ typedef struct s_prog
 	size_t		start_time;
 	t_philo		*philos;
 	sem_t		*forks;
-	sem_t		*end_sem;
 	sem_t		*check_sem;
 	sem_t		*msg_sem;
 }	t_prog;

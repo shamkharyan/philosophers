@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pshamkha <pshamkha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shamkharyan <shamkharyan@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 19:01:47 by pshamkha          #+#    #+#             */
-/*   Updated: 2024/07/18 19:01:49 by pshamkha         ###   ########.fr       */
+/*   Updated: 2025/03/15 19:45:05 by shamkharyan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,7 @@ int	main(int argc, char **argv)
 	if (prog_init(&p, argc, argv))
 	{
 		start(&p);
-		sem_wait(p.end_sem);
-		sem_wait(p.end_sem);
+		waitpid(-1, NULL, 0);
 		free_memory(&p);
 	}
 	else

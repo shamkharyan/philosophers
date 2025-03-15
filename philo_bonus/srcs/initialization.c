@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialization.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pshamkha <pshamkha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shamkharyan <shamkharyan@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 15:58:15 by pshamkha          #+#    #+#             */
-/*   Updated: 2024/07/17 19:59:09 by pshamkha         ###   ########.fr       */
+/*   Updated: 2025/03/15 19:45:36 by shamkharyan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,6 @@ static int	semes_init(t_prog *p)
 	p->msg_sem = sem_open("/msg", O_CREAT, 0644, 1);
 	if (p->msg_sem == SEM_FAILED)
 		return (0);
-	p->end_sem = sem_open("/end", O_CREAT, 0644, 1);
-	if (p->end_sem == SEM_FAILED)
-		return (0);
 	p->check_sem = sem_open("/check", O_CREAT, 0644, 1);
 	if (p->check_sem == SEM_FAILED)
 		return (0);
@@ -68,7 +65,6 @@ static int	philos_init(t_prog *p)
 		p->philos[i].proc_end = &p->proc_end;
 		p->philos[i].last_eat = p->start_time;
 		p->philos[i].start_time = &p->start_time;
-		p->philos[i].end_sem = p->end_sem;
 		p->philos[i].check_sem = p->check_sem;
 		p->philos[i].msg_sem = p->msg_sem;
 		p->philos[i].forks = p->forks;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   monitor.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pshamkha <pshamkha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shamkharyan <shamkharyan@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 16:54:28 by pshamkha          #+#    #+#             */
-/*   Updated: 2024/07/03 18:31:51 by pshamkha         ###   ########.fr       */
+/*   Updated: 2025/03/15 19:48:41 by shamkharyan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,8 @@ static int	check_one_dead(t_philo *p)
 
 static int	check_dead(t_prog *p)
 {
-	size_t	time;
 	int		i;
 
-	time = get_time();
 	i = -1;
 	while (++i < p->args.count)
 	{

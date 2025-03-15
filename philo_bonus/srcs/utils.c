@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pshamkha <pshamkha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shamkharyan <shamkharyan@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 14:49:12 by pshamkha          #+#    #+#             */
-/*   Updated: 2024/07/18 18:19:18 by pshamkha         ###   ########.fr       */
+/*   Updated: 2025/03/15 19:46:46 by shamkharyan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ void	ft_putmsg(t_philo *p, char	*msg, const char *color)
 	sem_wait(p->msg_sem);
 	printf("%s%lums %d %s\n%s", color, get_time() - *p->start_time,
 		p->id, msg, RES);
-	sem_post(p->msg_sem);
+	if (msg[0] != 'd')
+		sem_post(p->msg_sem);
 }
 
 void	ft_sleep(size_t milliseconds)
@@ -71,7 +72,6 @@ void	free_memory(t_prog *p)
 	while (++i < p->args.count)
 		kill(p->philos[i].pid, SIGKILL);
 	sem_close(p->forks);
-	sem_close(p->end_sem);
 	sem_close(p->check_sem);
 	sem_close(p->msg_sem);
 	free(p->philos);
